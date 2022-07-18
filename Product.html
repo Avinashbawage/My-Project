@@ -81,7 +81,7 @@
     <div class="Homepageorders">
       <div id="filters">
           <p id="filtxt"><b> Filters </b></p>
-        <!-- <p id="count">Count:0</p>   -->
+          <p id="total">Count:0</p>   
         <!--  <label
             ><input type="checkbox" class="check" onclick="filterArr()" />
             New</label
@@ -160,6 +160,8 @@
 
           let listData = mydatas;
    
+           
+          
           var today = new Date();
           var dd = String(today.getDate()).padStart(2, "0");
           var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -257,13 +259,15 @@
             temp += "<td>" + itemData.unitPrice + "</td>";
             temp += "<td>" + itemData.stock + "</td></tr>";
           });
+
           document.getElementById("mytabledata").innerHTML = temp;
 
-          /*       total = filtredDataTotal.length;
-                let mycount1 = document.getElementById("count");
-                mycount1.innerHTML = `Count: ${total}`;
+                let total1;
+                total1 = finalTabledata.length;
+                let mycount1 = document.getElementById("total");
+                mycount1.innerHTML =`Count: ${total1}`;
     
-                console.log(filtredDataTotal); */
+                console.log(finalTabledata.length);  
         });
     };
     getUsers();
