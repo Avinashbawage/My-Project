@@ -80,8 +80,8 @@
     <h1>Orders</h1>
     <div class="Homepageorders">
       <div id="filters">
-        <p id="filtxt">Filters</p>
-        <p id="count">Count:0</p>
+          <p id="filtxt"><b> Filters </b></p>
+        <!-- <p id="count">Count:0</p>   -->
         <!--  <label
             ><input type="checkbox" class="check" onclick="filterArr()" />
             New</label
@@ -96,12 +96,12 @@
           > -->
         <div>
           <p>
-            <label class="checkbox"><input type="checkbox" name="product"  id="expireditems" checked
-                onclick="" />Expired</label>
+            <label class="checkbox"><input type="checkbox" name="expired"  id="expired" checked
+                onclick="getUsers()" />Expired</label>
           </p>
           <p>
-            <label class="checkbox"><input type="checkbox" name="product" id="lowcost"  checked
-                onclick="" />Low Cost</label>
+            <label class="checkbox"><input type="checkbox" name="lowstock" id="lowstock"  checked
+                onclick="getUsers()" />lowstock</label>
           </p>
         </div>
       </div>
@@ -145,7 +145,7 @@
         }
 
         let mydtaes = myformateddate("14-Aug-2012")
-        console.log(mydtaes)
+        // console.log(mydtaes)
 
     const getUsers = () => {
       axios
@@ -157,6 +157,8 @@
 
           // filtredDataTotal2 = mydatas.filter((item) => item.unitPrice < 100);
           // console.log(filtredDataTotal2);
+
+          let listData = mydatas;
    
           var today = new Date();
           var dd = String(today.getDate()).padStart(2, "0");
@@ -164,43 +166,59 @@
           var yyyy = today.getFullYear();
           var date = yyyy + "-" + mm + "-" + dd;
 
+          console.log(date)
+
           // console.log(date);
 
           //Onclick Checking
 
           // let mytabledata = mydatas;
-          var mytabledata =mydatas;
-          var expireditems1 = document.getElementById("expireditems").checked;
-          var lowcosts1 = document.getElementById("lowcost").checked;
-          var finalTableData;
+    
+          var expired = document.getElementById("expired").checked;
+          var lowstock = document.getElementById("lowstock").checked;
+          var finalTabledata;
 
-          if (expireditems1 && lowcosts1) {
+          console.log(expired)
+
+
+
+   /*        if (expired && lowstock){
             document.getElementById("mytabledata").innerHTML ="";
-            finalTableData = mydatas.filter(
-           /*    (items) => {
-                var currentdate=myformateddate(items.expiryDate)
-                return currentdate > date && items.stock < 100;
-
-              } */
-              function (item) {
-                            var convertedDate = myformateddate(item.expiryDate);
-                            return convertedDate > date && item.stock < 100;
+            finalTabledata = mydatas.filter(
+                        function(item) {
+                            var converteddate = myformateddate(item.expiryDate);
+                            return converteddate < date && item.stock < 100;
                         }
-            )
-          console.log(finalTabledata)
+                       );
+          console.log( "boths",finalTabledata)
 
-          }
-
-          else if (expireditems1) {
+          } */
+            if (expired && lowstock) {
             document.getElementById("mytabledata").innerHTML =" ";
-            finalTableData = mydatas.filter(
+            finalTabledata = mydatas.filter(
         /*       (items) => {
                 var currentdate = myformateddate(items.expiryDate)
                 return currentdate > date;
               } */
               function (item) {
                             var convertedDate = myformateddate(item.expiryDate);
-                            return convertedDate > date ;
+                            return convertedDate < date &&  item.stock < 100;;
+                        }
+            )
+
+            console.log(finalTabledata)
+          }
+
+          else if (expired) {
+            document.getElementById("mytabledata").innerHTML =" ";
+            finalTabledata = mydatas.filter(
+        /*       (items) => {
+                var currentdate = myformateddate(items.expiryDate)
+                return currentdate > date;
+              } */
+              function (item) {
+                            var convertedDate = myformateddate(item.expiryDate);
+                            return convertedDate < date ;
                         }
             )
 
@@ -208,9 +226,9 @@
           }
 
 
-          else if (lowcosts1) {
+          else if (lowstock) {
             document.getElementById("mytabledata").innerHTML = " ";
-            finalTableData = mydatas.filter(
+            finalTabledata = mydatas.filter(
            /*    (items) => {
                 var convertedDate = myformateddate(items.expiryDate);
               return items.stock < 100;
@@ -225,13 +243,12 @@
           }
 
           else {
-            document.getElementById("mytabledata").innerHTML = " ";
-            return  finalTableData = mydatas;
+            finalTabledata = mydatas;
           }
 
-          console.log("resultProductData",expireditems1,lowcosts1)
+          console.log("finalTabledata",finalTabledata,finalTabledata)
           var temp ="";
-          finalTableData.forEach((itemData) => {
+          finalTabledata.forEach((itemData) => {
             temp += "<tr >";
             temp += "<td>" + itemData.id + "</td>";
             temp += "<td>" + itemData.medicineName + "</td>";
@@ -251,7 +268,10 @@
     };
     getUsers();
 
-  </script>
+  </script>  
+
+ 
+ 
 </body>
 
 </html>
