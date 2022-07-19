@@ -23,52 +23,6 @@
         border-bottom: 3px solid #20b883;
       }
 
-      .UserList_FilterWrapper {
-    width: 700px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 48px;
-}
-
-.UserList_SearchBox {
-    width: calc(100% - 100px);
-    padding: 12px 24px;
-    font-size: 15px;
-    border: 0;
-    border-bottom: 2px solid #8c8c8c;
-    margin: 0 36px 0 0;
-    outline: none;
-    background-color: #FFFFFF;
-}
-
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-    border-top-color: inherit;
-    border-right-color: inherit;
-    border-bottom-color: inherit;
-    border-left-color: inherit;
-}
-.UserList_Button {
-    display: inline-block;
-    border-radius: 30px;
-    padding: 14px 36px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    background-color: #20b883;
-    color: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
-  
-.UserList_SecondaryText {
-    color: #8c8c8c;
-}
-
     </style>
     <title>Web App</title>
   </head>
@@ -96,7 +50,7 @@ tbody {
           type="search"
           id="search-box"
           placeholder="Search by Name"
-        /><input type="reset" onclick="search()" class="UserList_Button" value="Reset" />
+        /><input type="reset" onclick="getUsers()" class="UserList_Button" value="Reset" />
       </form>
 
       <div class="Homepageorders">
@@ -153,7 +107,11 @@ tbody {
             console.log(value)
 
             if (value.length<2) {
+
+               
             alert("Please enter atleast 2 characters")
+                
+               
            }
 
             var data1 = searchTable(value, mydatas)
@@ -233,6 +191,16 @@ tbody {
       };
 
       getUsers();
+
+
+  /*     console.log(a) 
+          var a=10;
+
+      var a;
+      console.log(a)
+      a=10;
+
+ */
     </script>
   </body>
 </html>
