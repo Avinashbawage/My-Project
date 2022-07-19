@@ -53,7 +53,7 @@
           </p>
           <p>
             <label class="checkbox"><input type="checkbox" name="orders" value="InTransit" checked
-                onclick="getUsers()" />InTransition</label>
+                onclick="getUsers()" />InTransit</label>
           </p>
           <p>
             <label class="checkbox"><input type="checkbox" name="orders" value="Delivered" checked
@@ -82,7 +82,7 @@
     let status = window.localStorage.getItem("loginStatus");
     function logOut() {
       window.localStorage.setItem("loginStatus", "false")
-      window.location.href = "index.html";
+      window.location.href = "loginpage.html";
     }
 
     const getUsers = () => {
