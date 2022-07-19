@@ -87,24 +87,14 @@
             var mydatas = response.data;
             // console.log(mydatas);
  
-            console.log(mydatas);
-
-           // Searching the Names
-/* 
-           var mywords="A"
-
-           if (mywords.length<2) {
-            alert("Please Enter  words more than 2")
-           }
-           */
-        
-            
+            console.log(mydatas); 
      
+
             $("#search-box").on("keyup", function () {
               
             let value = $(this).val()
 
-            console.log(value)
+            console.log("The value Entered", value)
 
             if (value.length<2) {
 
@@ -115,6 +105,8 @@
            }
 
             var data1 = searchTable(value, mydatas)
+
+            console.log("This is data1", data1)
 
             buildTAbledata(data1);
 
@@ -130,14 +122,8 @@
 
             for (let i = 0; i < mydatas.length; i++) {
               value = value.toLowerCase()
-
-        
-                
               
               var name = mydatas[i].fullName.toLowerCase();
-
-          
-              console.log(name)
 
               if (name.includes(value)) {
                 filtereddata.push(mydatas[i])

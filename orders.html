@@ -105,6 +105,7 @@
           for (var i = 0; i < cb.length; i++) {
             if (cb[i].checked) {
               checkboxArray.push(cb[i].value);
+              console.log("This is CheckboxArray ",checkboxArray) //New / Packed / Intransition / Delivered
             }
      
           }
@@ -113,6 +114,7 @@
           filtredDataTotal = mydatas.filter((item) =>
             checkboxArray.includes(item.orderStatus)
           );
+          console.log("This is Filtereddatatotal1", filtredDataTotal)
           var temp = " ";
           filtredDataTotal.forEach((itemData) => {
             temp += "<tr >";
@@ -128,7 +130,7 @@
           let mycount1 = document.getElementById("count");
           mycount1.innerHTML = `Count: ${total}`;
 
-          console.log(filtredDataTotal);
+          console.log("This is a Count", filtredDataTotal);
         });
     };
     getUsers();
