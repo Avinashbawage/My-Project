@@ -18,46 +18,7 @@
       border-bottom: 3px solid #20b883;
     }
 
-    /*      #logout {
-        position: absolute;
-        right: 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-
-      .maincontainer {
-        margin-top: 100px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 8% 4%;
-      }
-
-      .Homepageorders {
-        display: flex;
-        align-items: baseline;
-      }
-      #filters {
-        width: 180px;
-        display: flex;
-        flex-direction: column;
-        margin: 6px 0;
-        cursor: pointer;
-      }
-
-      .Homepage_OrderTable {
-        width: 100%;
-      }
-      #filtertxt {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      label {
-        margin: 10px 0;
-      }
-
-      .Homepage_OrderTable td {
-        text-align: center;
-      } */
+    
   </style>
   <title>Web App</title>
 </head>
@@ -82,18 +43,7 @@
       <div id="filters">
           <p id="filtxt"><b> Filters </b></p>
           <p id="total">Count:0</p>   
-        <!--  <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            New</label
-          >
-          <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            Packed</label
-          >
-          <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            InTransit</label
-          > -->
+        
         <div>
           <p>
             <label class="checkbox"><input type="checkbox" name="expired"  id="expired" checked
@@ -183,18 +133,6 @@
           console.log(expired)
 
 
-
-   /*        if (expired && lowstock){
-            document.getElementById("mytabledata").innerHTML ="";
-            finalTabledata = mydatas.filter(
-                        function(item) {
-                            var converteddate = myformateddate(item.expiryDate);
-                            return converteddate < date && item.stock < 100;
-                        }
-                       );
-          console.log( "boths",finalTabledata)
-
-          } */
             if (expired && lowstock) {
             document.getElementById("mytabledata").innerHTML =" ";
             finalTabledata = mydatas.filter(

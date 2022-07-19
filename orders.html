@@ -16,47 +16,7 @@
       color: #20b883;
       border-bottom: 3px solid #20b883;
     }
-
-    /*      #logout {
-        position: absolute;
-        right: 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-
-      .maincontainer {
-        margin-top: 100px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 8% 4%;
-      }
-
-      .Homepageorders {
-        display: flex;
-        align-items: baseline;
-      }
-      #filters {
-        width: 180px;
-        display: flex;
-        flex-direction: column;
-        margin: 6px 0;
-        cursor: pointer;
-      }
-
-      .Homepage_OrderTable {
-        width: 100%;
-      }
-      #filtertxt {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      label {
-        margin: 10px 0;
-      }
-
-      .Homepage_OrderTable td {
-        text-align: center;
-      } */
+ 
   </style>
   <title>Web App</title>
 </head>
@@ -81,18 +41,7 @@
       <div id="filters">
         <p id="filtxt">Filters</p>
         <p id="count">Count:0</p>
-        <!--  <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            New</label
-          >
-          <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            Packed</label
-          >
-          <label
-            ><input type="checkbox" class="check" onclick="filterArr()" />
-            InTransit</label
-          > -->
+        
         <div>
           <p>
             <label class="checkbox"><input type="checkbox" name="orders" value="New" checked
@@ -144,18 +93,20 @@
           var mydatas = response.data;
           console.log(mydatas);
 
-          let resEle = document.querySelector(".result");
+          // let resEle = document.querySelector(".result");
           // get the value of checkbox which are selected and stroed in array
           let checkboxArray = [];
           let finalData = [];
           let filtredData = [];
           document.getElementById("mytabledata").innerHTML = "";
           var cb = document.getElementsByName("orders");
+          console.log(cb)
           var total = 0;
           for (var i = 0; i < cb.length; i++) {
             if (cb[i].checked) {
               checkboxArray.push(cb[i].value);
             }
+     
           }
 
           // api data filter acc to checkbox

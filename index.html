@@ -103,12 +103,12 @@
         function validate() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            if (username == password && username.length > 1) {
+            if (username === password && username.length > 1) {
                 alert("Login Successful");
                 window.localStorage.setItem("loginStatus", "true")
                 // window.location.href = "orders.html";
-                window.location = "orders.html"; // Redirecting to other page.
-                return false;
+                window.location.href = "orders.html"; // Redirecting to other page.
+             
             }
             else {
 
